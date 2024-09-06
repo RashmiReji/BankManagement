@@ -1,0 +1,37 @@
+<nav>
+    <style>
+        nav {
+            background-color: #003366;
+            padding: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            background-color: green;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <ul>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'deposit_withdraw' %}">Deposit/Withdraw</a></li>
+            <li><a href="{% url 'transaction_history' %}">Transaction History</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+            <!-- Add other links for non-authenticated users here if needed -->
+        {% endif %}
+    </ul>
+</nav>
